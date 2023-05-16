@@ -6,12 +6,16 @@
   "module": "my-element.js",
   "type": "module",
   "scripts": {
-    "serve": "es-dev-server --node-resolve --watch"
+    "serve": "es-dev-server --node-resolve --watch",
+    "build": "esbuild src/index.js --bundle --minify --outfile=dist/bundle.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "es-dev-server": "^2.1.0",
     "lit": "^2.7.4"
+  },
+  "devDependencies": {
+    "esbuild": "^0.17.19"
   }
 }
