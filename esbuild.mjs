@@ -1,13 +1,39 @@
 import * as esbuild from 'esbuild';
-import * as dotenv from 'dotenv'
-dotenv.config()
-const entryPoint = `src/${process.env.COMPONENT_NAME}.js`;
-// const entryPoint = `src/components/${process.env.COMPONENT_NAME}/index.js`;
-const outfile = `dist/${process.env.COMPONENT_NAME}.js`;
+import fs from 'fs';
 
-await esbuild.build({
-  entryPoints: [entryPoint],
-  bundle: true,
-  minify: true,
-  outfile: outfile,
-})
+const componentDir = 'src';
+const outputDir = 'dist';
+
+const findFolders = (directory) => {
+  const files = fs.readdirSync(directory);
+  const folders = [];
+
+  for (const file of files) {
+    const filePath = `${directory}/${file}`;
+    const stats = fs.statSync(filePath);
+
+    if (stats.isDirectory()) {
+      folders.push(filePath);
+      folders.push(...findFolders(filePath));
+    }
+  }
+
+  return folders;
+};
+
+const folders = [componentDir, ...findFolders(componentDir)];
+
+folders.forEach(folderPath => {
+  const indexPath = `${folderPath}/index.js`;
+  const folderName = folderPath.split('/').pop();
+  const outputFileName = `${outputDir}/${folderName}/${folderName}.js`;
+
+  if (fs.existsSync(indexPath)) {
+    esbuild.buildSync({
+      entryPoints: [indexPath],
+      outfile: outputFileName,
+    });
+  }
+});
+
+
