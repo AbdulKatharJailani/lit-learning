@@ -1,15 +1,6 @@
-import { html, LitElement, css } from 'lit';
+import { html, LitElement } from 'lit';
 
-class LifecycleComponent extends LitElement {
-    static get styles() {
-        return css`
-          .container {
-            background-color: #f7f7f7;
-            padding: 20px;
-          }
-        `;
-      }
-    
+class LifecycleComponent extends LitElement {    
       static get properties() {
         return {
           count: { type: Number },
@@ -66,7 +57,7 @@ class LifecycleComponent extends LitElement {
       render() {
         console.log('render called');
         return html`
-          <div class="container">
+          <div>
             <p>Count: ${this.count}</p>
             <button @click=${this.increment}>Increment</button>
           </div>

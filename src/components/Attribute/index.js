@@ -1,6 +1,7 @@
-import {LitElement, html, css} from 'lit';
-
+import {LitElement, html} from 'lit';
+import { attributeStyle } from './style.js';
 class MyElement extends LitElement {
+  static styles = attributeStyle;
   static get properties() {
     return {
       count: { 
@@ -30,7 +31,7 @@ class MyElement extends LitElement {
 
   render() {
     return html`
-      <div>
+      <div class="container">
         <p>Count: ${this.count}</p>
         <p>Message: ${this.message}</p>
         <button @click=${this.increment}>Increment</button>

@@ -7,11 +7,12 @@
   "type": "module",
   "scripts": {
     "serve": "es-dev-server --node-resolve --watch",
-    "build": "esbuild src/index.js --bundle --minify --outfile=dist/bundle.js"
+    "build": "node esbuild.mjs"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "es-dev-server": "^2.1.0",
     "lit": "^2.7.4"
   },

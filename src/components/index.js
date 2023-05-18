@@ -1,9 +1,9 @@
 import {LitElement, html} from 'lit';
 
-import './components/header.js';
-import './components/footer.js';
-import './components/attribute.js';
-import './components/lifecycle.js';
+import './Header/index.js';
+import './Footer/index.js';
+import './Attribute/index.js';
+import './Lifecycle/index.js';
 
 class MyPage extends LitElement {
   render() {
