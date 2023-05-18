@@ -2,11 +2,14 @@ import { LitElement,html } from "lit";
 import {footerStyle} from './style.js';
 
 class MyFooter extends LitElement{
-    static styles = footerStyle;
+     static styles = footerStyle;
+     static properties = {
+        message: { type: String }
+      };
     render(){
         return html
         `<div class="container">
-        <footer>Footer</footer>
+        <footer>${this.message}</footer>
         </div>`;
     }
 }
