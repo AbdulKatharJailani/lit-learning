@@ -24,14 +24,15 @@ const findFolders = (directory) => {
 const folders = [componentDir, ...findFolders(componentDir)];
 
 folders.forEach(folderPath => {
-  const indexPath = `${folderPath}/index.js`;
+  const indexPath = `${folderPath}/index.ts`;
   const folderName = folderPath.split('/').pop();
-  const outputFileName = `${outputDir}/${folderName}/${folderName}.js`;
-
+  const outputFileName = `${outputDir}/${folderName}/index.js`;
   if (fs.existsSync(indexPath)) {
     esbuild.buildSync({
       entryPoints: [indexPath],
       outfile: outputFileName,
+      bundle: true,
+      minify: true,
     });
   }
 });

@@ -12,11 +12,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.0.3",
     "es-dev-server": "^2.1.0",
+    "fs": "0.0.1-security",
     "lit": "^2.7.4"
   },
   "devDependencies": {
-    "esbuild": "^0.17.19"
+    "esbuild": "^0.17.19",
+    "typescript": "^5.0.4"
   }
 }
