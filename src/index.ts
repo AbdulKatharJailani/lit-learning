@@ -4,7 +4,7 @@ import './components/Header/index';
 import './components/Footer/index';
 import './components/Attribute/index';
 @customElement ('page-element')
-class PageElement extends LitElement {
+export class PageElement extends LitElement {
   handleClick() {
     console.log('Button clicked in parent component');
   }

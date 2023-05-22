@@ -3,7 +3,7 @@ import { customElement,property } from "lit/decorators.js";
 import { footerStyle } from "./style";
 
 @customElement('footer-element')
-class FooterElement extends LitElement{
+export class FooterElement extends LitElement{
     static styles = footerStyle;
     @property({ 
         type: String,
