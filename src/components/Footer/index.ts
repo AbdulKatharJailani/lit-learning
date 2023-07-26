@@ -4,12 +4,12 @@ import { footerStyle } from "./style";
 
 @customElement('footer-element')
 export class FooterElement extends LitElement{
-    static styles = footerStyle;
+    static override styles = footerStyle;
     @property({ 
         type: String,
       }) message = '';
 
-      render(){
+      override render(){
         return html `
         <div class="container">
         <footer>${this.message}</footer>

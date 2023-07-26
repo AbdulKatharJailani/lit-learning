@@ -8,7 +8,7 @@ export class PageElement extends LitElement {
   handleClick() {
     console.log('Button clicked in parent component');
   }
-  render() {
+  override render() {
     return html`
       <header-element message="Header-component"></header-element>
       <attribute-element .handleClick=${this.handleClick}></attribute-element>

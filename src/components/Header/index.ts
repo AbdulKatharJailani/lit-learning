@@ -3,12 +3,12 @@ import { customElement,property } from "lit/decorators.js";
 import { headerStyle } from "./style";
 @customElement('header-element')
 export class HeaderElement extends LitElement{
-    static styles = headerStyle;
+    static override styles = headerStyle;
     @property({ 
         type: String,
       }) message = '';
 
-      render(){
+      override render(){
         return html `
         <div class="container">
         <footer>${this.message}</footer>
